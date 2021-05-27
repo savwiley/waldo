@@ -1,11 +1,15 @@
 import React from "react";
+import Header from "./components/Header.js";
 
-const playgame = () => {
+const PlayGame = () => {
 
   return(
     <>
-    </>
-  )
-}
+    <Header />
 
-export default playgame;
+    <div className="image"></div>
+    </>
+  );
+};
+
+export default PlayGame;

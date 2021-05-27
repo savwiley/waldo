@@ -1,11 +1,12 @@
 import React from "react";
 
-const highscore = () => {
+const HighScore = () => {
 
   return(
-    <>
-    </>
+    <div>
+      
+    </div>
   )
 }
 
-export default highscore;
+export default HighScore;
