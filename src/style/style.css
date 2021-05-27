@@ -1,12 +1,45 @@
+:root {
+  --dark: #292929;
+  --ltDark: #797979;
+  --light: #c2c2c2;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--dark);
+  overflow: overlay;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track{
+  box-shadow: inset 0 0 5px var(--ltDark);
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: radial-gradient(circle, var(--ltDark) 70%, transparent);
+}
+
 .header {
-  width: 100%;
-  height: 20px;
-  background: blue;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 12vh;
+  background: var(--dark);
+  border-bottom: 3px ridge var(--light);
+  box-shadow: 0px 5px 4px rgba(0,0,0,0.4);
 }
 
 .image {
   background: url('../images/egor-klyuchnyk-kickstarter-artstation.jpg');
-  margin: 50px auto;
+  margin: 13vh auto 0;
   width: 1920px;
   height: 3581px;
 }
