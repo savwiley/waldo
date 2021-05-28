@@ -23,27 +23,28 @@ const PlayGame = () => {
 
     //adds the object id's to dropdown list
     objs.map(e => {
-      let name = e.id;
       const section = document.createElement("span");
       section.setAttribute("class", "section");
       section.style.display = "block";
-      section.textContent = name;
+      section.textContent = e.id;
       e.addEventListener("click", (a) => {
         dropdown.style.display = "block";
         dropdown.style.left = a.pageX + "px";
         dropdown.style.top = a.pageY + "px";
+        section.addEventListener("click", () => {
+          if (section.textContent === e.id) {
+            console.log("yup");
+            console.log(e.id);
+          } else {
+            console.log("nope");
+            console.log(e.id);
+          }
+        })
       });
-      section.addEventListener("click", () => {
-        if (section.textContent === e.id) {
-          console.log("yup");
-        } else {
-          console.log("nope");
-        }
-      })
       return dropdown.appendChild(section);
     })
 
-    //^keeps reading "yup"
+    //^does work but calls yup multiple times and doesn't call nope
     
   });
 
