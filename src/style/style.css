@@ -68,7 +68,6 @@ body {
 /* DROPDOWN MENU */
 
 .dropdown {
-  display: none;
   position: absolute;
   background: var(--lightO);
   width: 200px;
@@ -86,4 +85,14 @@ body {
 }
 .section:hover {
   background: var(--light);
+}
+
+.correct {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: green;
+  font-weight: bold;
 }
