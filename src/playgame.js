@@ -10,18 +10,19 @@ const PlayGame = () => {
     const dropdown = document.querySelector(".dropdown");
     dropdown.style.display = "none";
     const correctScreen = document.querySelector(".correct");
+    const wrongScreen = document.querySelector(".wrong");
     let objectContent;
-
-    const correctTime = () => {
-      correctScreen.style.display = "none"
-    }
 
     //makes dropdown appear where clicked
     imageMap.addEventListener("click", (e) => {
       if (dropdown.style.display === "none") {
         dropdown.style.display = "block";
-        dropdown.style.left = e.pageX + "px";
-        dropdown.style.top = e.pageY + "px";
+        let X;
+        let Y;
+        e.pageX > 1700 ? X = e.pageX - 200 : X = e.pageX;
+        e.pageY > 3350 ? Y = e.pageY - 300 : Y = e.pageY;
+        dropdown.style.left = X + "px";
+        dropdown.style.top = Y + "px";
         objectContent = "imageMap";
       } else {
         dropdown.style.display = "none";
@@ -39,20 +40,29 @@ const PlayGame = () => {
       //adds dropdown after clicking on chars
       e.addEventListener("click", (a) => {
         dropdown.style.display = "block";
-        dropdown.style.left = a.pageX + "px";
+        let X;
+        a.pageX > 1700 ? X = a.pageX - 200 : X = a.pageX;
+        dropdown.style.left = X + "px";
         dropdown.style.top = a.pageY + "px";
         objectContent = e.alt;
       });
       return dropdown.appendChild(section);
     })
 
+    //removes correctScreen after 3 seconds
+    const correctTime = () => {
+      correctScreen.style.display = "none"
+    }
+    //removes wrongScreen after 3 seconds
+    const wrongTime = () => {
+      wrongScreen.style.display = "none"
+    }
+
     //selects correct/wrong answer from dropdown
     const section = Array.from(document.querySelectorAll(".section"));
     dropdown.addEventListener("click", (a) => {
       const item = document.querySelector(`area[alt=${objectContent}]`);
       if (a.path[0].id === objectContent) {
-        //RIGHT logic here
-        console.log("CORRECT");
         correctScreen.style.display = "block";
         item.remove();
         section.map(e => {
@@ -61,10 +71,10 @@ const PlayGame = () => {
           }
           return e;
         })
-        setTimeout(correctTime(), 5 * 1000);
+        setTimeout(correctTime, 2000);
       } else {
-        console.log("WRONG");
-        //WRONG logic here
+        wrongScreen.style.display = "block";
+        setTimeout(wrongTime, 2000);
       }
       dropdown.style.display = "none";
     })
@@ -92,6 +102,7 @@ const PlayGame = () => {
     <div className="dropdown"></div>
 
     <div className="correct">CORRECT</div>
+    <div className="wrong">WRONG</div>
     </>
   );
 };
@@ -102,6 +113,4 @@ export default PlayGame;
 
 /** 
   https://imagemap.org/
-
-  create right/wrong logic
   */
