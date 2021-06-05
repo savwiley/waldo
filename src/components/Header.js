@@ -1,29 +1,38 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import firebase from "../firebase.js";
 
 const Header = () => {
+  const [docs, setDocs] = useState();
+
+  async function callAsync() {
+    //adding .doc('{idname}') to the end of this v makes a certain doc appear. How do I make them all appear so that I could (preferrably) map through them?
+
+    //change {hard} to a variable that i can change via App.js and import it over here, maybe by making it a ref in App.js, sending it to playgame.js or Routes.js and sending it here. It has to go through playgame.js to change the dropdown anyway.
+    const doc = firebase.firestore().collection('Characters').where('difficulty', '==', 'hard');
+    const docGet = await doc.get();
+    setDocs(docGet);
+  }
 
   useEffect(() => {
 
-    async function callAsync() {
-      const header = document.querySelector(".header");
-      const doc = firebase.firestore().collection('Characters').doc('ash');
-      const docGet = await doc.get();
-      if (docGet) {
-        const elem = docGet.data().id;
-        header.textContent = elem;
-      } else {
-        alert("please")
-      }
+    //const header = document.querySelector(".header");
+    if (!docs) {
+      callAsync();
+    } else {
+      //v holds the data like a json
+      let headText = [];
+      docs.forEach(e => {
+        headText.push(e.data());
+      })
+      console.log(headText[0].id);
     }
-    callAsync();
-
-    //find a way to cycle through all of them. i'm just going to want three at a time. and those same three have to be the only ones in the dropdown.
 
   });
 
   return (
     <div className="header">
+      
+      Loading...
 
     </div>
   )
