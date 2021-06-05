@@ -6,6 +6,7 @@
   --light: #c2c2c2;
 
   --lightO: rgb(194, 194, 194, 0.9);
+  --darkO: rgb(0, 0, 0, 0.9);
 }
 
 /* GENERAL */
@@ -33,6 +34,33 @@ body {
 }
 ::-webkit-scrollbar-thumb {
   background: radial-gradient(circle, var(--ltDark) 70%, transparent);
+}
+
+/* FRONT PAGE */
+
+.start {
+  width: fit-content;
+  padding: 10px 20px 20px;
+  margin: 70px auto 0;
+  background: var(--light);
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 2px 2px 4px var(--darkO);
+  font-size: 30px;
+}
+
+.diff {
+  cursor: pointer;
+  margin: 10px 0;
+}
+#easy {
+  color: green;
+}
+#medium {
+  color: yellow;
+}
+#hard {
+  color: red;
 }
 
 /* HEADER */
