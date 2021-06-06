@@ -22,6 +22,10 @@ body {
   overflow: overlay;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* SCROLLBAR */
 
 ::-webkit-scrollbar {
@@ -52,6 +56,7 @@ body {
 .diff {
   cursor: pointer;
   margin: 10px 0;
+  text-decoration: none;
 }
 #easy {
   color: green;
