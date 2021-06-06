@@ -1,32 +1,30 @@
 import React, { useState, useEffect } from "react";
 import firebase from "../firebase.js";
 
-const Header = () => {
+const Header = (props) => {
   const [docs, setDocs] = useState();
+  const { difficulty } = props;
 
   async function callAsync() {
-    //adding .doc('{idname}') to the end of this v makes a certain doc appear. How do I make them all appear so that I could (preferrably) map through them?
-
-    //change {hard} to a variable that i can change via App.js and import it over here, maybe by making it a ref in App.js, sending it to playgame.js or Routes.js and sending it here. It has to go through playgame.js to change the dropdown anyway.
-    const doc = firebase.firestore().collection('Characters').where('difficulty', '==', 'hard');
+    const doc = firebase.firestore().collection('Characters').where('difficulty', '==', difficulty);
     const docGet = await doc.get();
     setDocs(docGet);
   }
 
   useEffect(() => {
-
-    //const header = document.querySelector(".header");
+    const header = document.querySelector(".header");
     if (!docs) {
       callAsync();
     } else {
       //v holds the data like a json
       let headText = [];
       docs.forEach(e => {
-        headText.push(e.data());
+        headText.push(e.data().id);
       })
-      console.log(headText[0].id);
+      //v change this to make it look better with images and things
+      //also, consider starting the timer at this point
+      header.textContent = headText;
     }
-
   });
 
   return (
