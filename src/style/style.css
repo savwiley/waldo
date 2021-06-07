@@ -76,17 +76,49 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  height: 12vh;
+  height: 16vh;
   background: var(--dark);
   border-bottom: 3px ridge var(--light);
   box-shadow: 0px 5px 4px rgba(0,0,0,0.4);
+  color: var(--light);
+  font-size: 25px;
+  padding: 10px 10px 0;
+}
+
+#one, #two, #three {
+  display: inline-block;
+  height: 100%;
+  width: fit-content;
+  text-align: center;
+  vertical-align: middle;
+  margin-right: 15px;
+  cursor: default;
+}
+
+.imageOne, .imageTwo, .imageThree {
+  display: inline-block;
+  height: 15vh;
+  width: 100px;
+}
+
+.imageOne:hover ~ #one,
+.imageTwo:hover ~ #two,
+.imageThree:hover ~ #three,
+#one:hover, #two:hover, #three:hover {
+  color: #fff;
+}
+.imageOne:hover,
+.imageTwo:hover,
+.imageThree:hover {
+  -webkit-filter: drop-shadow(0px 0px 4px var(--light));
+  filter: drop-shadow(0px 0px 4px var(--light));
 }
 
 /* GAME IMAGE */
 
 .image {
   display: block;
-  margin: 13vh auto 0;
+  margin: 16vh auto 0;
   width: 1920px;
   height: 3581px;
   -webkit-touch-callout: none;
