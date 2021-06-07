@@ -42,6 +42,7 @@ export default App;
  * - make a better correct/wrong screen
  * - create a You Found Them All or whatever screen
  * -- figure out how to decide this happened, when dropdown is empty?
+ * -- give player ability to add high score after stopping timer
  * - create high score table (set with different difficulties)
  * - create links to high score table (in App.js and Header.js?)
  * - edit README
