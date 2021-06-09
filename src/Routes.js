@@ -11,7 +11,7 @@ const Routes = () => {
       <Switch>
         <Route exact path="/" render={() => <App />} />
         <Route exact path="/:difficulty" render={() => <PlayGame />} />
-        <Route exact path="/scores" render={() => <HighScore />} />
+        <Route exact path="/scores/:diffScore" render={() => <HighScore />} />
       </Switch>
     </HashRouter>
   )
