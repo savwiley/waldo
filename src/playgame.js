@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Header from "./components/Header.js";
+import Winner from "./components/Winner.js";
 import firebase from "./firebase.js";
 
 const PlayGame = () => {
   const [docs, setDocs] = useState();
+  const [time, setTime] = useState();
   const { difficulty } = useParams();
 
   async function callAsync() {
@@ -19,9 +21,12 @@ const PlayGame = () => {
     const imageMap = document.querySelector(".image");
     const dropdown = document.querySelector(".dropdown");
     dropdown.style.display = "none";
+    const timer = document.querySelector(".timer");
     const correctScreen = document.querySelector(".correct");
     const wrongScreen = document.querySelector(".wrong");
+    const winScreen = document.querySelector(".winner");
     let objectContent;
+    let winningMatches = 0;
 
     //calls firestore
     if (!docs) {
@@ -94,7 +99,9 @@ const PlayGame = () => {
           item.remove();
           section.map((e) => {
             if (e.id === objectContent) {
+              winningMatches += 1;
               e.remove();
+              chickenDinner();
             }
             return e;
           });
@@ -105,13 +112,21 @@ const PlayGame = () => {
         }
         dropdown.style.display = "none";
       });
+
+      const chickenDinner = () => {
+        if (winningMatches === 3) {
+          winScreen.style.display = "block";
+          setTime(timer.textContent);
+        };
+      }
+
     }
 
   });
 
   return (
     <>
-      <Header difficulty={ difficulty } />
+      <Header difficulty={ difficulty } time={ time } />
 
       <img
         src="https://raw.githubusercontent.com/savwiley/waldo/master/src/images/egor-klyuchnyk-kickstarter-artstation.jpg"
@@ -190,6 +205,7 @@ const PlayGame = () => {
 
       <div className="correct">CORRECT</div>
       <div className="wrong">WRONG</div>
+      <Winner time={ time } />
     </>
   );
 };
