@@ -114,6 +114,11 @@ a {
   filter: drop-shadow(0px 0px 4px var(--light));
 }
 
+.timer {
+  float: right;
+  margin: 30px 50px 0 0;
+}
+
 /* GAME IMAGE */
 
 .image {
@@ -156,6 +161,8 @@ a {
   background: var(--light);
 }
 
+/* SCREENS */
+
 .correct, .wrong {
   display: none;
   position: fixed;
@@ -171,4 +178,72 @@ a {
 }
 .wrong {
   color: red;
+}
+
+.winner {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--darkO);
+  cursor: default;
+}
+.winInner {
+  background: var(--dark);
+  position: fixed;
+  top: 30vh;
+  left: 30vw;
+  font-weight: bold;
+  text-shadow: 2px 2px 0px var(--darkO);
+  box-shadow: 2px 2px 0px var(--darkO);
+  font-size: 60px;
+  letter-spacing: 3px;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* HIGH SCORES */
+
+.flex {
+  display: flex;
+  width: 100%;
+  border-bottom: 2px ridge var(--light);
+  width: 98%;
+  margin: 10px auto 0;
+}
+.flex a {
+  width: 100%;
+  color: var(--light);
+  text-shadow: 1px 1px 0px var(--darkO);
+  font-size: 5vw;
+  text-align: center;
+  padding: 5px 0 10px;
+  border: 1px solid var(--light);
+  border-radius: 25px 25px 0 0;
+  border-bottom: none;
+  background: linear-gradient(180deg, transparent, var(--ltDark));
+}
+.flex a:hover {
+  background: linear-gradient(180deg, var(--lightO), var(--ltDark));
+  color: #fff;
+}
+
+.sect {
+  border-bottom: 2px ridge #58bbf5;
+  text-align: center;
+  color: var(--light);
+  text-shadow: 1px 1px 0px var(--darkO);
+  font-size: 25px;
+  width: 98%;
+  margin: auto;
+  padding-top: 10px;
+  letter-spacing: 1px;
+  cursor: default;
+}
+.sect:hover {
+  background: var(--ltDark);
+  color: #fff;
 }
