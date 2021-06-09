@@ -3,7 +3,7 @@ import firebase from "../firebase.js";
 
 const Header = (props) => {
   const [docs, setDocs] = useState();
-  const { difficulty } = props;
+  const { difficulty, time } = props;
 
   async function callAsync() {
     const doc = firebase.firestore().collection('Characters').where('difficulty', '==', difficulty);
@@ -19,8 +19,13 @@ const Header = (props) => {
     const secondImage = document.querySelector(".imageTwo");
     const third = document.querySelector("#three");
     const thirdImage = document.querySelector(".imageThree");
+    const timer = document.querySelector(".timer");
+    let oneSec = 0;
+    let tenSec = 0;
+    let oneMin = 0;
+    let tenMin = 0;
+    let hourCont = 0;
 
-    //const header = document.querySelector(".header");
     if (!docs) {
       callAsync();
     } else {
@@ -28,25 +33,54 @@ const Header = (props) => {
       let headText = [];
       docs.forEach(e => {
         headText.push(e.data());
-      })
-      //also, consider starting the timer at this point
+      });
+
       first.textContent = headText[0].id;
-      firstImage.style.background = `url("https://raw.githubusercontent.com/savwiley/waldo/master/src/images/${headText[0].image}")`;
-      firstImage.style.backgroundPosition = "center";
-      firstImage.style.backgroundRepeat = "no-repeat";
-      firstImage.style.backgroundSize = "contain";
+      firstImage.style.background = `center / contain no-repeat url("https://raw.githubusercontent.com/savwiley/waldo/master/src/images/${headText[0].image}")`;
 
       second.textContent = headText[1].id;
-      secondImage.style.background = `url("https://raw.githubusercontent.com/savwiley/waldo/master/src/images/${headText[1].image}")`;
-      secondImage.style.backgroundPosition = "center";
-      secondImage.style.backgroundRepeat = "no-repeat";
-      secondImage.style.backgroundSize = "contain";
+      secondImage.style.background = `center / contain no-repeat url("https://raw.githubusercontent.com/savwiley/waldo/master/src/images/${headText[1].image}")`;
 
       third.textContent = headText[2].id;
-      thirdImage.style.background = `url("https://raw.githubusercontent.com/savwiley/waldo/master/src/images/${headText[2].image}")`;
-      thirdImage.style.backgroundPosition = "center";
-      thirdImage.style.backgroundRepeat = "no-repeat";
-      thirdImage.style.backgroundSize = "contain";
+      thirdImage.style.background = `center / contain no-repeat url("https://raw.githubusercontent.com/savwiley/waldo/master/src/images/${headText[2].image}")`;
+
+      const update = () => {
+        if (time) {
+          timer.remove();
+        }
+        timer.textContent = `${hourCont}:${tenMin}${oneMin}:${tenSec}${oneSec}`;
+      };
+
+      const oneSeconds = () => {
+        oneSec += 1;
+        update();
+      };
+      const tenSeconds = () => {
+        oneSec = 0;
+        tenSec += 1;
+        update();
+      };
+      const oneMinutes = () => {
+        tenSec = 0;
+        oneMin += 1;
+        update();
+      };
+      const tenMinutes = () => {
+        oneMin = 0;
+        tenMin += 1;
+        update();
+      };
+      const hours = () => {
+        tenMin = 0;
+        hourCont += 1;
+        update();
+      };
+
+      setInterval(oneSeconds, 1000);
+      setInterval(tenSeconds, 10000);
+      setInterval(oneMinutes, 60000);
+      setInterval(tenMinutes, 600000);
+      setInterval(hours, 3600000);
     }
   });
 
@@ -67,6 +101,8 @@ const Header = (props) => {
       <div id="three">
         Loading...
       </div>
+
+      <div className="timer"></div>
 
     </div>
   )
