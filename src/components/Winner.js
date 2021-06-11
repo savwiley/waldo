@@ -1,18 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Winner = (props) => {
-  const { time } = props;
+  const { time, difficulty } = props;
+  const [diff, setDiff] = useState();
+
+  //changes the high scores link to sync up to the same level being played
+  useEffect(() => {
+    if (difficulty === "easy") {
+      setDiff("scores/EasyScores")
+    } else if (difficulty === "medium") {
+      setDiff("scores/MedScores")
+    } else {
+      setDiff("scores/HardScores")
+    };
+  }, [difficulty]);
 
   return(
     <div className="winner">
       <div className="winInner">
-        YOU WON IN {time}!
+        You won in {time}!
+
+        <form>
+          <input type="text" placeholder="Your Name" />
+
+          <button type="submit">Submit Time</button>
+        </form>
+
+        <div className="flexBtns">
+          <Link to={diff}>High Scores</Link>
+          <Link to={difficulty}>Play Again</Link>
+          <Link to="/">Change Level</Link>
+        </div>
+
       </div>
     </div>
   )
 }
 
 export default Winner;
+
+/**
+ * does the button need to be submit?
+ * go back to the guide that taught how to make a messenger app
+ * consider using font awesome or smth
+ */
 
 /**
  * name input
