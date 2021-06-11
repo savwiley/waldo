@@ -82,10 +82,8 @@ export default App;
 /**
  * TODOS
  * - make a better correct/wrong screen
- * - create a You Found Them All or whatever screen
- * -- figure out how to decide this happened, when dropdown is empty?
- * -- give player ability to add high score after stopping timer
  * - fix dropdown so it doesn't overflow off screen instead of just off page
+ * - make sure all btns hover elements activate correctly
  * - clean up CSS
  * - mobile friendly
  * - consider creating an error page if async can't be called, likely because of INTERNET PROBLEMS

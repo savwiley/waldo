@@ -40,7 +40,7 @@ const PlayGame = () => {
           let X;
           let Y;
           e.pageX > 1700 ? (X = e.pageX - 200) : (X = e.pageX);
-          e.pageY > 3350 ? (Y = e.pageY - 300) : (Y = e.pageY);
+          e.pageY > 3570 ? (Y = e.pageY - 110) : (Y = e.pageY);
           dropdown.style.left = X + "px";
           dropdown.style.top = Y + "px";
           objectContent = "imageMap";
