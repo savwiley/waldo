@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import firebase from "./firebase.js";
 
 const HighScore = () => {
   const [ docs, setDocs ] = useState();
   const { diffScore } = useParams();
-  //let scoring = [];
-  let newDiff;
+  const newDiff = useRef();
 
   /**
    * collections are EasyScores, MedScores, HardScores
@@ -16,7 +15,7 @@ const HighScore = () => {
 
   async function callAsync() {
     const doc = firebase.firestore().collection(diffScore);
-    newDiff = diffScore;
+    newDiff.current = diffScore;
     const docGet = await doc.get();
     setDocs(docGet);
   };
@@ -24,14 +23,21 @@ const HighScore = () => {
   useEffect(() => {
     //selectors
     const table = document.querySelector(".table");
+    const sections = Array.from(document.querySelectorAll(".sect"));
 
-    if (!docs) {
+    if (!docs || newDiff.current !== diffScore) {
+      table.textContent = "Loading...";
       callAsync();
-      console.log(newDiff);
-      console.log(diffScore);
+      if (sections) {
+        sections.forEach(e => {
+          e.remove();
+          return e;
+        });
+      };
     } else {
       let name = [];
       let score = [];
+      table.textContent = "";
       docs.forEach(e => {
         name.push(e.id);
         score.push(e.data().score);
@@ -41,20 +47,24 @@ const HighScore = () => {
         sect.setAttribute("class", "sect");
         table.appendChild(sect);
         sect.textContent = `${name[i]} timed in at ${score[i]}`;
-      }
+      };
 
     }
-  })
+  });
 
   return(
     <div>
       <div className="flex">
-        <Link to="/scores/EasyScores">Easy</Link>
+        <Link to="EasyScores">Easy</Link>
         <Link to="MedScores">Medium</Link>
         <Link to="HardScores">Hard</Link>
       </div>
 
-      <div className="table"></div>
+      <div className="table">Loading...</div>
+
+      <div className="button">
+        <Link to="/">Back to Start</Link>
+      </div>
     </div>
   )
 }
