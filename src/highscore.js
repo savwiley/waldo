@@ -14,7 +14,7 @@ const HighScore = () => {
    */
 
   async function callAsync() {
-    const doc = firebase.firestore().collection(diffScore);
+    const doc = firebase.firestore().collection(diffScore).orderBy('score');
     newDiff.current = diffScore;
     const docGet = await doc.get();
     setDocs(docGet);
