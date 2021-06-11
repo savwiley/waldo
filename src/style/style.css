@@ -31,6 +31,7 @@ body {
 
 a {
   text-decoration: none;
+  outline: none;
 }
 
 /* SCROLLBAR */
@@ -198,6 +199,9 @@ a {
   border-bottom: 1px solid var(--dark);
   cursor: pointer;
 }
+.section:nth-last-child(1) {
+  border-bottom: none;
+}
 .section:hover {
   background: var(--light);
 }
@@ -232,10 +236,11 @@ a {
   cursor: default;
 }
 .winInner {
+  width: 40vw;
   background: url("https://www.transparenttextures.com/patterns/triangles.png"), var(--dark);
   position: fixed;
   top: 30vh;
-  left: 30vw;
+  left: 28vw;
   font-weight: bold;
   text-shadow: 3px 3px 0px var(--darkO);
   box-shadow: 2px 2px 0px var(--darkO);
@@ -251,7 +256,7 @@ a {
   display: block;
   outline: none;
   width: 100%;
-  font-size: 20px;
+  font-size: 30px;
   padding: 2px;
   text-align: center;
   margin: 10px 0 5px;
@@ -264,6 +269,7 @@ a {
   box-shadow: 2px 2px 0px var(--darkO);
   border: none;
   cursor: pointer;
+  outline: none;
 }
 .winInner button:hover, .flexBtns a:hover {
   color: #fff;
@@ -280,7 +286,7 @@ a {
   background: var(--lightLtO);
   height: fit-content;
   margin-top: 20px;
-  font-size: 14px;
+  font-size: 16px;
   text-shadow: none;
   color: #000
 }
