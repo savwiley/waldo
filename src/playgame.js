@@ -205,7 +205,7 @@ const PlayGame = () => {
 
       <div className="correct">CORRECT</div>
       <div className="wrong">WRONG</div>
-      <Winner time={ time } />
+      <Winner time={ time } difficulty={ difficulty } />
     </>
   );
 };
