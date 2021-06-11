@@ -6,7 +6,14 @@
   --light: #c2c2c2;
 
   --lightO: rgb(194, 194, 194, 0.9);
+  --lightLtO: rgb(194, 194, 194, 0.5);
   --darkO: rgb(0, 0, 0, 0.9);
+
+  --green: #0c990c;
+  --ltGreen: #00f800;
+  --blue: #58bbf5;
+  --purple: #9b0bb8;
+
 }
 
 /* GENERAL */
@@ -18,7 +25,7 @@
 }
 
 body {
-  background: var(--dark);
+  background: url("https://www.transparenttextures.com/patterns/triangles.png"), var(--dark);
   overflow: overlay;
 }
 
@@ -45,27 +52,61 @@ a {
 .start {
   width: fit-content;
   padding: 10px 20px 20px;
-  margin: 70px auto 0;
-  background: var(--light);
+  margin: 50px auto 0;
+  background: var(--lightLtO);
   border-radius: 10px;
-  text-align: center;
   box-shadow: 2px 2px 4px var(--darkO);
-  font-size: 30px;
+  font-size: 50px;
+}
+
+.appFlex {
+  height: 70vh;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: space-around;
+}
+.appFlex a {
+  width: 50%;
+  align-self: center;
+  cursor: default;
 }
 
 .diff {
   cursor: pointer;
-  margin: 10px 0;
-  text-decoration: none;
+  text-shadow: 1px 1px 0px var(--darkO), 2px 2px 0px var(--darkO);
+  color: #fff;
+  -webkit-text-stroke: 1px #000;
+  transition: all 0.2s;
 }
-#easy {
-  color: green;
+#easy:hover {
+  color: var(--green);
 }
-#medium {
+#medium:hover {
   color: yellow;
 }
-#hard {
+#hard:hover {
   color: red;
+}
+#scoresLink {
+  width: 100%;
+  height: 10px;
+  text-align: center;
+  font-size: 20px;
+  margin: 30px 0 0;
+}
+#scoresLink:hover {
+  color: var(--blue);
+  letter-spacing: 2px;
+}
+.diff:hover {
+  text-shadow: 1px 1px 0px var(--darkO), 2px 2px 0px var(--darkO), 3px 3px 0px var(--darkO), 4px 4px 0px var(--darkO);
+}
+
+.homeImage {
+  width: 50%;
+  height: 130px;
+  align-self: center;
 }
 
 /* HEADER */
@@ -174,7 +215,7 @@ a {
   cursor: pointer;
 }
 .correct {
-  color: #00f800;
+  color: var(--ltGreen);
 }
 .wrong {
   color: red;
@@ -224,7 +265,7 @@ a {
   border: 1px solid var(--light);
   border-radius: 25px 25px 0 0;
   border-bottom: none;
-  background: linear-gradient(180deg, transparent, var(--ltDark));
+  background: linear-gradient(180deg, var(--dark), var(--ltDark));
 }
 .flex a:hover {
   background: linear-gradient(180deg, var(--lightO), var(--ltDark));
@@ -232,7 +273,7 @@ a {
 }
 
 .sect {
-  border-bottom: 2px ridge #58bbf5;
+  border-bottom: 2px ridge var(--blue);
   text-align: center;
   color: var(--light);
   text-shadow: 1px 1px 0px var(--darkO);
@@ -245,5 +286,32 @@ a {
 }
 .sect:hover {
   background: var(--ltDark);
+  color: #fff;
+}
+
+.table {
+  text-align: center;
+  font-size: 120px;
+  color: var(--ltDark);
+  text-shadow: 2px 2px 0px var(--darkO);
+}
+
+.button {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  font-size: 25px;
+  background: var(--ltDark);
+  padding: 5px 20px;
+  border-radius: 50%;
+  box-shadow: -2px 2px 0px var(--darkO);
+  transition: all 0.2s;
+}
+.button a{
+  color: var(--dark);
+  transition: all 0.2s;
+}
+.button:hover, .button a:hover {
+  font-size: 30px;
   color: #fff;
 }
