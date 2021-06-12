@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Header from "./components/Header.js";
 import Winner from "./components/Winner.js";
 import firebase from "./firebase.js";
@@ -52,13 +52,29 @@ const PlayGame = () => {
       //compares objs elements to firestore docs
       //saves the appropriate ones in the array
       let objects = [];
+      let unusedObjs = [];
       objs.map((e) => {
         docs.forEach((a) => {
           if (a.data().id === e.id) {
             objects.push(e);
+          } else {
+            unusedObjs.push(e);
           }
         });
         return objects;
+      });
+
+      //all unused objects are able to be clicked on, too
+      unusedObjs.map((e) => {
+        e.addEventListener("click", (a) => {
+          dropdown.style.display = "block";
+          let X;
+          a.pageX > 1700 ? (X = a.pageX - 200) : (X = a.pageX);
+          dropdown.style.left = X + "px";
+          dropdown.style.top = a.pageY + "px";
+          objectContent = "imageMap";
+        })
+        return dropdown;
       })
 
       //adds the object id's to dropdown list
@@ -113,6 +129,7 @@ const PlayGame = () => {
         dropdown.style.display = "none";
       });
 
+      //decides if the user won (winner winner chicken dinner)
       const chickenDinner = () => {
         if (winningMatches === 3) {
           winScreen.style.display = "block";
@@ -200,6 +217,10 @@ const PlayGame = () => {
           shape="rect"
         />
       </map>
+
+      <div className="button">
+        <Link to="/">Back to Start</Link>
+      </div>
 
       <div className="dropdown"></div>
 
