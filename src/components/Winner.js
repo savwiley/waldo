@@ -28,7 +28,7 @@ const Winner = (props) => {
     const playerName = document.querySelector("#playerName");
     const subBtn = document.querySelector("#subBtn");
 
-    //gives anon users a pokemon name (best api ever)
+    //name var; gives anon users a pokemon name (best api ever)
     let name;
 
     //collects the time
@@ -45,13 +45,20 @@ const Winner = (props) => {
 
     //event
     subBtn.addEventListener("click", (e) => {
-      e.preventDefault();
       name = playerName.value;
       if (!playerName.value) {
         name = pokemon.random();
         playerName.value = name;
       };
       addHighScore();
+    });
+  });
+
+  //refreshes page
+  useEffect(() => {
+    const playAgain = document.querySelector("#playAgain");
+    playAgain.addEventListener("click", () => {
+      window.location.reload(false);
     });
   });
 
@@ -62,11 +69,15 @@ const Winner = (props) => {
 
         <input type="text" id="playerName" placeholder="Your Name" />
 
-        <button type="submit" id="subBtn">Submit Time</button>
+        <button id="subBtn">
+          <Link to={diff}>
+            Submit Time
+          </Link>
+        </button>
 
         <div className="flexBtns">
           <Link to={diff}>High Scores</Link>
-          <Link to={difficulty}>Play Again</Link>
+          <div id="playAgain">Try Again</div>
           <Link to="/">Change Level</Link>
         </div>
 
