@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-//import Header from "./components/Header.js";
 
 function App() {
 
@@ -81,13 +80,10 @@ export default App;
 
 /**
  * TODOS
- * - make a better correct/wrong screen
- * - fix dropdown so it doesn't overflow off screen instead of just off page
- * - make sure all btns hover elements activate correctly
+ * - make a how-to-play/about component?
  * - clean up CSS
  * - mobile friendly
  * - consider creating an error page if async can't be called, likely because of INTERNET PROBLEMS
  * - edit README
  * - create LICENSE
- * - fix tab pic/name
  */
