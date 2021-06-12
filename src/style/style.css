@@ -123,8 +123,9 @@ a {
   border-bottom: 3px ridge var(--light);
   box-shadow: 0px 5px 4px rgba(0,0,0,0.4);
   color: var(--light);
-  font-size: 25px;
+  font-size: 28px;
   padding: 10px 10px 0;
+  -webkit-text-stroke: 1px #000;
 }
 
 #one, #two, #three {
@@ -146,19 +147,16 @@ a {
 .imageOne:hover ~ #one,
 .imageTwo:hover ~ #two,
 .imageThree:hover ~ #three,
-#one:hover, #two:hover, #three:hover {
+#one:hover, #two:hover, #three:hover,
+.timer:hover {
   color: #fff;
-}
-.imageOne:hover,
-.imageTwo:hover,
-.imageThree:hover {
-  -webkit-filter: drop-shadow(0px 0px 4px var(--light));
-  filter: drop-shadow(0px 0px 4px var(--light));
 }
 
 .timer {
   float: right;
   margin: 30px 50px 0 0;
+  cursor: default;
+  font-size: 35px;
 }
 
 /* GAME IMAGE */
@@ -261,7 +259,7 @@ a {
   text-align: center;
   margin: 10px 0 5px;
 }
-.winInner button, .flexBtns a {
+.winInner button, .flexBtns a, #playAgain {
   font-size: 28px;
   background: var(--light);
   padding: 5px 20px;
@@ -271,7 +269,10 @@ a {
   cursor: pointer;
   outline: none;
 }
-.winInner button:hover, .flexBtns a:hover {
+.winInner a {
+  color: #000;
+}
+.winInner a:hover, #playAgain:hover {
   color: #fff;
   text-shadow: 1px 1px 0px #000;
 }
@@ -281,7 +282,7 @@ a {
   align-items: center;
   justify-content: space-between;
 }
-.flexBtns a {
+.flexBtns a, #playAgain {
   width: 20%;
   background: var(--lightLtO);
   height: fit-content;
@@ -318,6 +319,7 @@ a {
 }
 
 .sect {
+  display: flex;
   border-bottom: 2px ridge var(--blue);
   text-align: center;
   color: var(--light);
@@ -333,6 +335,14 @@ a {
   background: var(--ltDark);
   color: #fff;
 }
+#sectName, #sectTime {
+  width: 100%;
+  text-align: center;
+}
+#sectName {
+  text-align: left;
+  padding-left: 5vw;
+}
 
 .table {
   text-align: center;
@@ -341,22 +351,20 @@ a {
   text-shadow: 2px 2px 0px var(--darkO);
 }
 
-.button {
+.button a{
   position: fixed;
-  bottom: 10px;
+  bottom: 15px;
   left: 10px;
   font-size: 25px;
-  background: var(--ltDark);
+  background: var(--lightLtO);
   padding: 5px 20px;
   border-radius: 50%;
   box-shadow: -2px 2px 0px var(--darkO);
-  transition: all 0.2s;
-}
-.button a{
   color: var(--dark);
   transition: all 0.2s;
 }
-.button:hover, .button a:hover {
+.button a:hover {
+  background: var(--ltDark);
   font-size: 30px;
   color: #fff;
 }
