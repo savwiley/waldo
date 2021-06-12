@@ -44,9 +44,16 @@ const HighScore = () => {
       });
       for (let i = 0; i < name.length; i++) {
         const sect = document.createElement("div");
-        sect.setAttribute("class", "sect");
-        table.appendChild(sect);
-        sect.textContent = `${name[i]} timed in at ${score[i]}`;
+          sect.setAttribute("class", "sect");
+          table.appendChild(sect);
+        const sectName = document.createElement("div");
+          sectName.setAttribute("id", "sectName");
+          sectName.textContent = `${i+1}. ${name[i]}`;
+          sect.appendChild(sectName);
+        const sectTime = document.createElement("div");
+          sectTime.setAttribute("id", "sectTime");
+          sectTime.textContent = score[i];
+          sect.appendChild(sectTime);
       };
 
     }
