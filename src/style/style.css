@@ -53,7 +53,7 @@ a {
 .start {
   width: fit-content;
   padding: 10px 20px 20px;
-  margin: 50px auto 0;
+  margin: 50px auto 50px;
   background: var(--lightLtO);
   border-radius: 10px;
   box-shadow: 2px 2px 4px var(--darkO);
@@ -61,7 +61,7 @@ a {
 }
 
 .appFlex {
-  height: 70vh;
+  min-height: 70vh;
   display: flex;
   flex-wrap: wrap;
   text-align: center;
@@ -108,6 +108,26 @@ a {
   width: 50%;
   height: 130px;
   align-self: center;
+}
+
+.aboutBtn a{
+  left: inherit !important;
+  right: 10px;
+  box-shadow: 2px 2px 0px var(--darkO) !important;
+}
+
+/* ABOUT PAGE */
+
+.aboutSection {
+  width: fit-content;
+  padding: 10px 20px 20px;
+  margin: 50px auto 50px;
+  background: var(--lightLtO);
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px var(--darkO);
+  color: #fff;
+  text-shadow: 1px 1px 0 #000;
+  font-size: 22px;
 }
 
 /* HEADER */
@@ -305,7 +325,7 @@ a {
   width: 100%;
   color: var(--light);
   text-shadow: 1px 1px 0px var(--darkO);
-  font-size: 5vw;
+  font-size: 3vw;
   text-align: center;
   padding: 5px 0 10px;
   border: 1px solid var(--light);
@@ -316,6 +336,17 @@ a {
 .flex a:hover {
   background: linear-gradient(180deg, var(--lightO), var(--ltDark));
   color: #fff;
+}
+
+.scoresTitle {
+  font-size: 7vw;
+  color: var(--light);
+  text-shadow: 1px 1px 0px var(--darkO);
+  width: 98%;
+  text-align: center;
+  margin: auto;
+  border-bottom: 2px ridge var(--blue);
+  cursor: default;
 }
 
 .sect {
@@ -335,13 +366,19 @@ a {
   background: var(--ltDark);
   color: #fff;
 }
-#sectName, #sectTime {
-  width: 100%;
-  text-align: center;
-}
 #sectName {
+  padding-left: 8vw;
+}
+#sectRecent {
+  font-size: 18px;
   text-align: left;
-  padding-left: 5vw;
+  flex-grow: 1;
+  padding-left: 10px;
+  color: var(--blue)
+}
+#sectTime {
+  text-align: center;
+  width: 50%;
 }
 
 .table {
