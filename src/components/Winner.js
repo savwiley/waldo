@@ -25,32 +25,38 @@ const Winner = (props) => {
   //saves names/scores to firestore
   useEffect(() => {
     //selectors
-    const playerName = document.querySelector("#playerName");
     const subBtn = document.querySelector("#subBtn");
+    const playerName = document.querySelector("#playerName");
 
-    //name var; gives anon users a pokemon name (best api ever)
     let name;
 
     //collects the time
     let data = {
       score: `${time}`,
+      date: firebase.firestore.Timestamp.now(),
     };
 
     //adds score
     async function addHighScore() {
       if (diff !== undefined) {
-        await firebase.firestore().collection(scoreCollection).doc(name).set(data);
+        await firebase.firestore().collection(scoreCollection).doc().set(data);
       }
     };
 
-    //event
-    subBtn.addEventListener("click", (e) => {
+    playerName.addEventListener("change", () => {
       name = playerName.value;
-      if (!playerName.value) {
+    });
+
+    //event
+    subBtn.addEventListener("click", () => {
+      if (!name) {
         name = pokemon.random();
         playerName.value = name;
       };
-      addHighScore();
+      Object.assign(data, {id: name});
+      if (time) {
+        addHighScore();
+      }
     });
   });
 
