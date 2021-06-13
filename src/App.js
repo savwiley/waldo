@@ -28,6 +28,7 @@ function App() {
 
   return(
     <>
+
       <div className="start">
 
         <div className="appFlex">
@@ -68,6 +69,12 @@ function App() {
 
       <div className="button">
         <a href="https://github.com/savwiley/waldo">GitHub</a>
+      </div>
+
+      <div className="aboutBtn button">
+        <Link to="about">
+          About
+        </Link>
       </div>
 
     </>
