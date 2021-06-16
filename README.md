@@ -4,11 +4,6 @@ This project was made with ReactJS, React Router, & Firebase. Information about 
 
 Preview coming soon!
 
-## Known Issues
-
-- No current 404 page in use.
-- No mobile responiveness.
-
 ## Credits
 
 This site was made with [ReactJS ^17.0.2](https://reactjs.org/), [React Router ^5.2.0](https://reactrouter.com/), & [Firebase ^8.6.2](https://firebase.google.com/).
@@ -16,6 +11,8 @@ This site was made with [ReactJS ^17.0.2](https://reactjs.org/), [React Router ^
 Artwork by [Egor Klyuchnyk](https://www.artstation.com/chekavo).
 
 Character images from [Wikipedia](https://en.wikipedia.org/wiki/Main_Page).
+
+Transparent 'triangles' background from [Transparent Textures](https://www.transparenttextures.com/).
 
 Anonymous names/Pokémon name generator from [sindresorhus/pokemon](https://github.com/sindresorhus/pokemon).
 
