@@ -441,7 +441,10 @@ a {
 
 /* MOBILE */
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
+  .header {
+    position: fixed !important;
+  }
   .imageOne,
   .imageTwo,
   .imageThree {
@@ -451,12 +454,12 @@ a {
   #two,
   #three {
     height: 30px;
-    width: 100%;
+    width: 300px;
   }
   .timer {
     float: right;
     position: relative;
-    bottom: 100px;
+    bottom: 60px;
   }
   .winInner {
     top: 25vh;
@@ -472,6 +475,6 @@ a {
     text-shadow: 1px 1px 0px #000;
   }
   .sect {
-    font-size: 20px;
+    font-size: 5vw;
   }
 }
