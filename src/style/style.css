@@ -379,7 +379,6 @@ a {
   margin: auto;
   padding-top: 10px;
   letter-spacing: 1px;
-  cursor: default;
 }
 .sect:hover {
   background: var(--ltDark);
@@ -405,6 +404,7 @@ a {
   font-size: 120px;
   color: var(--ltDark);
   text-shadow: 2px 2px 0px var(--darkO);
+  cursor: default;
 }
 
 .button a{
@@ -423,4 +423,36 @@ a {
   background: var(--ltDark);
   font-size: 30px;
   color: #fff;
+}
+
+/* MOBILE */
+
+@media (max-width:600px) {
+  .imageOne, .imageTwo, .imageThree {
+    display: none;
+  }
+  #one, #two, #three {
+    height: 30px;
+    width: 100%;
+  }
+  .timer {
+    float: right;
+    position: relative;
+    bottom: 100px;
+  }
+  .winInner {
+    top: 25vh;
+    font-size: 30px;
+  }
+  .flexBtns a, #playAgain {
+    margin-left: -15px;
+    background: none;
+    box-shadow: none;
+    color: #fff;
+    text-align: center;
+    text-shadow: 1px 1px 0px #000;
+  }
+  .sect {
+    font-size: 20px;
+  }
 }
