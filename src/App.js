@@ -82,15 +82,3 @@ function App() {
 }
 
 export default App;
-
-//https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/where-s-waldo-a-photo-tagging-app
-
-/**
- * TODOS
- * - make a how-to-play/about component?
- * - clean up CSS
- * - mobile friendly
- * - consider creating an error page if async can't be called, likely because of INTERNET PROBLEMS
- * - edit README
- * - create LICENSE
- */
