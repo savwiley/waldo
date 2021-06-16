@@ -2,7 +2,7 @@
 
 This project was made with ReactJS, React Router, & Firebase. Information about the Where's Waldo? Project can be found [here](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/where-s-waldo-a-photo-tagging-app).
 
-Preview coming soon!
+Preview [here](https://waldo-9e96c.web.app/)!
 
 ## Credits
 
