@@ -17,9 +17,9 @@ const Winner = (props) => {
       setDiff("scores/MedScores");
       setScoreCollection("MedScores");
     } else {
-      setDiff("scores/HardScores")
+      setDiff("scores/HardScores");
       setScoreCollection("HardScores");
-    };
+    }
   }, [difficulty]);
 
   //saves names/scores to firestore
@@ -41,7 +41,7 @@ const Winner = (props) => {
       if (diff !== undefined) {
         await firebase.firestore().collection(scoreCollection).doc().set(data);
       }
-    };
+    }
 
     playerName.addEventListener("change", () => {
       name = playerName.value;
@@ -52,8 +52,8 @@ const Winner = (props) => {
       if (!name) {
         name = pokemon.random();
         playerName.value = name;
-      };
-      Object.assign(data, {id: name});
+      }
+      Object.assign(data, { id: name });
       if (time) {
         addHighScore();
       }
@@ -68,28 +68,22 @@ const Winner = (props) => {
     });
   });
 
-  return(
+  return (
     <div className="winner">
       <div className="winInner">
         You won in {time}!
-
         <input type="text" id="playerName" placeholder="Your Name" />
-
         <button id="subBtn">
-          <Link to={diff}>
-            Submit Time
-          </Link>
+          <Link to={diff}>Submit Time</Link>
         </button>
-
         <div className="flexBtns">
           <Link to={diff}>High Scores</Link>
           <div id="playAgain">Try Again</div>
           <Link to="/">Change Level</Link>
         </div>
-
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Winner;
