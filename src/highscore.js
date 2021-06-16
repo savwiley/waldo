@@ -78,7 +78,7 @@ const HighScore = () => {
         const sectRecent = document.createElement("div");
         sectRecent.setAttribute("id", "sectRecent");
         if (mostRecent.id === name[i]) {
-          sectRecent.textContent = "🟊 most recent";
+          sectRecent.textContent = "~ most recent";
         }
         sect.appendChild(sectRecent);
         //score/time
