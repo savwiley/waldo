@@ -443,6 +443,9 @@ a {
 /* MOBILE */
 
 @media screen and (max-width: 800px) {
+  #scoresLink {
+    height: fit-content;
+  }
   .imageOne,
   .imageTwo,
   .imageThree {
@@ -459,15 +462,22 @@ a {
     position: relative;
     bottom: 60px;
   }
+  .correct,
+  .wrong {
+    left: 30vw;
+  }
   .winInner {
     top: 25vh;
+    left: 12vw;
     font-size: 30px;
+    width: 70vw;
   }
   .flexBtns a,
   #playAgain {
     margin-left: -15px;
     background: none;
     box-shadow: none;
+    text-decoration: underline;
     color: #fff;
     text-align: center;
     text-shadow: 1px 1px 0px #000;
