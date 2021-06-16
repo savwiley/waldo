@@ -146,78 +146,78 @@ const PlayGame = () => {
       <Header difficulty={difficulty} time={time} />
 
       <div id="image">
-      <img
-        src="https://raw.githubusercontent.com/savwiley/waldo/master/src/images/egor-klyuchnyk-kickstarter-artstation.jpg"
-        className="image"
-        useMap="#image"
-        alt="2222AD"
-      />
+        <img
+          src="https://raw.githubusercontent.com/savwiley/waldo/master/src/images/egor-klyuchnyk-kickstarter-artstation.jpg"
+          className="image"
+          useMap="#image"
+          alt="2222AD"
+        />
 
-      <map name="image" className="imageMap">
-        <area
-          alt="sonic"
-          id="Sonic the Hedgehog"
-          className="object"
-          coords="609,1866,684,1926"
-          shape="rect"
-        />
-        <area
-          alt="portal"
-          id="Frankenturret"
-          className="object"
-          coords="1286,1334,1354,1422"
-          shape="rect"
-        />
-        <area
-          alt="bravo"
-          id="Johnny Bravo"
-          className="object"
-          coords="781,1810,903,1924"
-          shape="rect"
-        />
-        <area
-          alt="neo"
-          id="Neo"
-          className="object"
-          coords="728,313,849,403"
-          shape="rect"
-        />
-        <area
-          alt="minion"
-          id="Minion"
-          className="object"
-          coords="1795,1587,1846,1652"
-          shape="rect"
-        />
-        <area
-          alt="ash"
-          id="Ash Ketchum"
-          className="object"
-          coords="27,2530,87,2581"
-          shape="rect"
-        />
-        <area
-          alt="jabba"
-          id="Jabba the Hutt"
-          className="object"
-          coords="1169,1017,1254,1133"
-          shape="rect"
-        />
-        <area
-          alt="edward"
-          id="Edward Elric"
-          className="object"
-          coords="1099,2846,1182,2906"
-          shape="rect"
-        />
-        <area
-          alt="link"
-          id="Link"
-          className="object"
-          coords="371,3188,476,3285"
-          shape="rect"
-        />
-      </map>
+        <map name="image" className="imageMap">
+          <area
+            alt="sonic"
+            id="Sonic the Hedgehog"
+            className="object"
+            coords="609,1866,684,1926"
+            shape="rect"
+          />
+          <area
+            alt="portal"
+            id="Frankenturret"
+            className="object"
+            coords="1286,1334,1354,1422"
+            shape="rect"
+          />
+          <area
+            alt="bravo"
+            id="Johnny Bravo"
+            className="object"
+            coords="781,1810,903,1924"
+            shape="rect"
+          />
+          <area
+            alt="neo"
+            id="Neo"
+            className="object"
+            coords="728,313,849,403"
+            shape="rect"
+          />
+          <area
+            alt="minion"
+            id="Minion"
+            className="object"
+            coords="1795,1587,1846,1652"
+            shape="rect"
+          />
+          <area
+            alt="ash"
+            id="Ash Ketchum"
+            className="object"
+            coords="27,2530,87,2581"
+            shape="rect"
+          />
+          <area
+            alt="jabba"
+            id="Jabba the Hutt"
+            className="object"
+            coords="1169,1017,1254,1133"
+            shape="rect"
+          />
+          <area
+            alt="edward"
+            id="Edward Elric"
+            className="object"
+            coords="1099,2846,1182,2906"
+            shape="rect"
+          />
+          <area
+            alt="link"
+            id="Link"
+            className="object"
+            coords="371,3188,476,3285"
+            shape="rect"
+          />
+        </map>
       </div>
 
       <div className="button">
