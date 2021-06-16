@@ -145,6 +145,7 @@ const PlayGame = () => {
     <>
       <Header difficulty={difficulty} time={time} />
 
+      <div id="image">
       <img
         src="https://raw.githubusercontent.com/savwiley/waldo/master/src/images/egor-klyuchnyk-kickstarter-artstation.jpg"
         className="image"
@@ -217,6 +218,7 @@ const PlayGame = () => {
           shape="rect"
         />
       </map>
+      </div>
 
       <div className="button">
         <Link to="/">Back to Start</Link>
