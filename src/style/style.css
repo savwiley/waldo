@@ -12,7 +12,6 @@
   --green: #0c990c;
   --ltGreen: #00f800;
   --blue: #58bbf5;
-  --purple: #9b0bb8;
 
 }
 
@@ -119,7 +118,7 @@ a {
 /* ABOUT PAGE */
 
 .aboutSection {
-  width: fit-content;
+  width: 80vw;
   padding: 10px 20px 20px;
   margin: 50px auto 50px;
   background: var(--lightLtO);
@@ -128,6 +127,26 @@ a {
   color: #fff;
   text-shadow: 1px 1px 0 #000;
   font-size: 22px;
+}
+
+#title {
+  font-size: 60px;
+  text-shadow: 1px 1px 0px var(--darkO), 2px 2px 0px var(--darkO), 3px 3px 0px var(--darkO), 4px 4px 0px var(--darkO);
+  -webkit-text-stroke: 1px #000;
+  cursor: default;
+  text-align: center;
+}
+
+.aboutSection p {
+  text-align: justify;
+  letter-spacing: 0.5px;
+  cursor: default;
+}
+.aboutSection a {
+  color: var(--blue);
+}
+.aboutSection a:hover {
+  text-decoration: underline;
 }
 
 /* HEADER */
