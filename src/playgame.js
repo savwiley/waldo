@@ -10,10 +10,13 @@ const PlayGame = () => {
   const { difficulty } = useParams();
 
   async function callAsync() {
-    const doc = firebase.firestore().collection('Characters').where('difficulty', '==', difficulty);
+    const doc = firebase
+      .firestore()
+      .collection("Characters")
+      .where("difficulty", "==", difficulty);
     const docGet = await doc.get();
     setDocs(docGet);
-  };
+  }
 
   useEffect(() => {
     //selectors
@@ -32,7 +35,6 @@ const PlayGame = () => {
     if (!docs) {
       callAsync();
     } else {
-
       //makes dropdown appear where clicked
       imageMap.addEventListener("click", (e) => {
         if (dropdown.style.display === "none") {
@@ -73,9 +75,9 @@ const PlayGame = () => {
           dropdown.style.left = X + "px";
           dropdown.style.top = a.pageY + "px";
           objectContent = "imageMap";
-        })
+        });
         return dropdown;
-      })
+      });
 
       //adds the object id's to dropdown list
       objects.map((e) => {
@@ -134,16 +136,14 @@ const PlayGame = () => {
         if (winningMatches === 3) {
           winScreen.style.display = "block";
           setTime(timer.textContent);
-        };
-      }
-
+        }
+      };
     }
-
   });
 
   return (
     <>
-      <Header difficulty={ difficulty } time={ time } />
+      <Header difficulty={difficulty} time={time} />
 
       <img
         src="https://raw.githubusercontent.com/savwiley/waldo/master/src/images/egor-klyuchnyk-kickstarter-artstation.jpg"
@@ -226,24 +226,9 @@ const PlayGame = () => {
 
       <div className="correct">CORRECT</div>
       <div className="wrong">WRONG</div>
-      <Winner time={ time } difficulty={ difficulty } />
+      <Winner time={time} difficulty={difficulty} />
     </>
   );
 };
 
 export default PlayGame;
-
-//https://www.w3schools.com/tags/tag_area.asp
-
-/** 
-  https://imagemap.org/
-
-  Now hook up the functionality for validating with your back end whether the user has clicked in the right place for that character.
-
-  >>> OH DEAR I accidentally made the whole game in react.
-  >>> https://firebase.google.com/codelabs/firebase-web#15
-  >>> there's also React Firebase which is a thing we could use
-  >>> https://react-firebase-js.com/
-
-  Tie it into your front end so you can seamlessly select characters, validate them, and place the appropriate markers on the map if the selection was correct.
-  */

@@ -6,7 +6,6 @@ import HighScore from "./highscore.js";
 import About from "./about.js";
 
 const Routes = () => {
-
   return (
     <HashRouter basename="/">
       <Switch>
@@ -16,7 +15,7 @@ const Routes = () => {
         <Route exact path="/scores/:diffScore" render={() => <HighScore />} />
       </Switch>
     </HashRouter>
-  )
-}
+  );
+};
 
 export default Routes;

@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function App() {
-
   useEffect(() => {
     //arrays
     const easy = ["jabba.png", "neo.png", "portal.png"];
@@ -20,19 +19,24 @@ function App() {
     const hardImage = document.querySelector("#hardImage");
 
     //backgrounds
-    easyImage.style.background = "center / contain no-repeat url('https://raw.githubusercontent.com/savwiley/waldo/master/src/images/" + easy[randomNumb()] + "')";
-    medImage.style.background = "center / contain no-repeat url('https://raw.githubusercontent.com/savwiley/waldo/master/src/images/" + medium[randomNumb()] + "')";
-    hardImage.style.background = "center / contain no-repeat url('https://raw.githubusercontent.com/savwiley/waldo/master/src/images/" + hard[randomNumb()] + "')";
+    easyImage.style.background =
+      "center / contain no-repeat url('https://raw.githubusercontent.com/savwiley/waldo/master/src/images/" +
+      easy[randomNumb()] +
+      "')";
+    medImage.style.background =
+      "center / contain no-repeat url('https://raw.githubusercontent.com/savwiley/waldo/master/src/images/" +
+      medium[randomNumb()] +
+      "')";
+    hardImage.style.background =
+      "center / contain no-repeat url('https://raw.githubusercontent.com/savwiley/waldo/master/src/images/" +
+      hard[randomNumb()] +
+      "')";
+  });
 
-  })
-
-  return(
+  return (
     <>
-
       <div className="start">
-
         <div className="appFlex">
-
           <div className="homeImage" id="easyImage"></div>
 
           <Link to="easy">
@@ -56,7 +60,6 @@ function App() {
               Hard
             </div>
           </Link>
-
         </div>
 
         <Link to="scores/EasyScores">
@@ -64,7 +67,6 @@ function App() {
             High Scores
           </div>
         </Link>
-
       </div>
 
       <div className="button">
@@ -72,13 +74,10 @@ function App() {
       </div>
 
       <div className="aboutBtn button">
-        <Link to="about">
-          About
-        </Link>
+        <Link to="about">About</Link>
       </div>
-
     </>
-  )
+  );
 }
 
 export default App;
