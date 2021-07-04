@@ -112,7 +112,7 @@ const PlayGame = () => {
       const section = Array.from(document.querySelectorAll(".section"));
       dropdown.addEventListener("click", (a) => {
         const item = document.querySelector(`area[alt=${objectContent}]`);
-        if (a.path[0].id === objectContent) {
+        if (a.target.id === objectContent) {
           correctScreen.style.display = "block";
           item.remove();
           section.map((e) => {
